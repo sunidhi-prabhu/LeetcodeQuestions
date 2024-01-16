@@ -8,6 +8,8 @@ public class LL {
     public LL(){
         this.size = 0;
     }
+
+    //implements code for insert at the start of the single linked list
     public void insertfirst(int val){
         Node node = new Node(val);
         node.next = head;
@@ -16,7 +18,7 @@ public class LL {
             tail = head;
         size += 1;
     }
-
+    //display the linked list
     public void display(){
         Node temp = head;
         while(temp != null){
@@ -25,7 +27,7 @@ public class LL {
         }
         System.out.println("end");
     }
-
+//alternate way to insert without the usage of tail
 //    public void insertend(int val){
 //        Node node = new Node(val);
 //        if(head == null)
@@ -37,7 +39,7 @@ public class LL {
 //        temp.next = node;
 //        size++;
 //    }
-
+    //implements code for insert at the end of the single linked list
     public void insertend(int val){
         Node node = new Node(val);
         if(tail == null)
@@ -47,6 +49,7 @@ public class LL {
         size++;
     }
 
+    //implements code for insert at a given index of the single linked list
     public void insert(int val, int index){
         if(index == 0) {
             insertfirst(val);
@@ -66,6 +69,7 @@ public class LL {
         size++;
     }
 
+    //implements code for delete at the start of the single linked list
     public int deletefirst(){
         int val = head.value;
         head = head.next;
