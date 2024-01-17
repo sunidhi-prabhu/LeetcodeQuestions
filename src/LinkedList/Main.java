@@ -7,12 +7,14 @@ public class Main {
         list.insertfirst(4);
         list.insertfirst(5);
         list.insertfirst(6);
+        //display the inserted elements
         list.display();
-        //list.insertend(8);
-        //list.display();
-        //list.insert(50,3);
-        list.deletefirst();
+        list.insertend(8);
+        //display the elements with the new element inserted at the end
         list.display();
+        list.insert(50,3);
+        list.deletefirst();//delete element at the start
+        list.display();//display the remaining elements
 
     }
 }
