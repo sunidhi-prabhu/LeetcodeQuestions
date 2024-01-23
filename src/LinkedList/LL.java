@@ -1,5 +1,5 @@
 package LinkedList;
-
+//single linked list
 public class LL {
     private Node head;
     private Node tail;
@@ -79,6 +79,48 @@ public class LL {
         return val;
     }
 
+    //delete element at any given index
+    public int delete(int index){
+        if(index == 0)
+            deletefirst();
+        if(index == size-1)
+            deletelast();
+        Node prev = get(index - 1);
+        int val = prev.next.value;
+        prev.next = prev.next.next;
+        return val;
+    }
+
+    //delete at end
+    public Node get(int index){
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    public int deletelast(){
+        if(head.next == null)
+            deletefirst();
+
+        Node secondlast = get(size-2);
+        int val = tail.value;
+        tail = secondlast;
+        tail.next = null;
+        return val;
+    }
+
+    //find the node of the element present
+    public Node find(int value){
+        Node node = head;
+        while(node!=null){
+            if(node.value==value)
+                return node;
+            node = node.next;
+        }
+        return null;
+    }
 
     private class Node{
         private int value;
