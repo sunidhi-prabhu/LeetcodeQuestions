@@ -9,15 +9,20 @@ public class LL {
         this.size = 0;
     }
 
-    //implements code for insert at the start of the single linked list
-    public void insertfirst(int val){
-        Node node = new Node(val);
-        node.next = head;
-        head = node;
-        if(tail == null)
-            tail = head;
-        size += 1;
+    private class Node{
+        private int value;
+        private Node next;
+
+        public Node(int value){
+            this.value = value;
+        }
+
+        public Node(int value, Node next){
+            this.value = value;
+            this.next = next;
+        }
     }
+
     //display the linked list
     public void display(){
         Node temp = head;
@@ -27,6 +32,16 @@ public class LL {
         }
         System.out.println("end");
     }
+    //implements code for insert at the start of the single linked list
+    public void insertfirst(int val){
+        Node node = new Node(val);
+        node.next = head;
+        head = node;
+        if(tail == null)
+            tail = head;
+        size += 1;
+    }
+
 //alternate way to insert without the usage of tail
 //    public void insertend(int val){
 //        Node node = new Node(val);
@@ -90,16 +105,6 @@ public class LL {
         prev.next = prev.next.next;
         return val;
     }
-
-    //delete at end
-    public Node get(int index){
-        Node node = head;
-        for (int i = 0; i < index; i++) {
-            node = node.next;
-        }
-        return node;
-    }
-
     public int deletelast(){
         if(head.next == null)
             deletefirst();
@@ -109,6 +114,15 @@ public class LL {
         tail = secondlast;
         tail.next = null;
         return val;
+    }
+
+    //traverse till the specified index
+    public Node get(int index){
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
     }
 
     //find the node of the element present
@@ -122,17 +136,4 @@ public class LL {
         return null;
     }
 
-    private class Node{
-        private int value;
-        private Node next;
-
-     public Node(int value){
-         this.value = value;
-     }
-
-        public Node(int value, Node next){
-            this.value = value;
-            this.next = next;
-        }
-    }
 }
