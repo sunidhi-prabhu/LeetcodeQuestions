@@ -66,19 +66,19 @@ public class DLL {
     }
 
 
-    public void insert(int val, int index){
-        Node temp = get(index -1);
-
-        if(temp.prev == null)
-            insertbegin(val);
-
-        if(temp.next == null)
-            insertend(val);
-
-        Node node = new Node(val,temp.next,temp);
-        temp.next.prev=node;
-        temp.next=node;
-
+    public void insert(int val, int after) { //insert after the given value of after
+        Node temp = find(after);
+        if (temp == null)
+        {
+            System.out.println("list doesnt exist");
+            return;
+        }
+        Node node = new Node(val);
+        node.next = temp.next;
+        if(node.next != null)
+            temp.next.prev = node;
+        temp.next = node;
+        node.prev = temp;
     }
 
     public int deletebegin(){
@@ -110,6 +110,16 @@ public class DLL {
             node = node.next;
         }
         return node;
+    }
+
+    public Node find(int value){
+        Node node = head;
+        while(node!=null){
+            if(node.val==value)
+                return node;
+            node = node.next;
+        }
+        return null;
     }
 
 

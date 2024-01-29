@@ -19,8 +19,8 @@ public class DllMain {
         System.out.println();
 
 
-        list.insert(8,3);
-        System.out.println("elements inserted in of the double linked list");
+        list.insert(8,5);
+        System.out.println("elements inserted after a given pos of the double linked list");
         list.display();
         System.out.println();
         System.out.println();
